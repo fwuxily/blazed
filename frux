@@ -1,0 +1,101 @@
+local NotificationHolder = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Module.Lua"))()
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/BocusLuke/UI/main/STX/Client.Lua"))()
+
+Notification:Notify(
+    {Title = "Blazed", Description = "go lock on some kids"},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "option"},
+    {Image = "https://www.roblox.com/asset/?id=17676210956", ImageColor = Color3.fromRGB(255, 84, 84), Callback = function(State) print(tostring(State)) end}
+)
+wait(1.5)
+Notification:Notify(
+    {Title = "Note", Description = "Visuals and Misc are still in development."},
+    {OutlineColor = Color3.fromRGB(80, 80, 80),Time = 5, Type = "option"},
+    {Image = "https://www.roblox.com/asset/?id=17676210956", ImageColor = Color3.fromRGB(255, 84, 84), Callback = function(State) print(tostring(State)) end}
+)
+
+local Library = loadstring(game:HttpGet("https://pastebin.com/raw/1dHtNiX2"))()
+
+Library:CreateWatermark("Remake", "left")
+
+local Window = Library:CreateWindow("Blazed", Vector2.new(420, 300), Enum.KeyCode.RightShift)
+
+local AimingTab = Window:CreateTab("Aiming")
+local VisualsTab = Window:CreateTab("Visuals")
+local MiscTab = Window:CreateTab("Misc")
+
+local Aimlock = AimingTab:CreateSector("Aimlock", "left")
+
+Aimlock:AddToggle(
+    "Enable",
+    true,
+    function(first)
+       Settings.rewrittenmain.Enabled = first
+    end
+)
+
+Aimlock:AddButton(
+    "Lock Tool",
+    function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/yHjkZqg0"))()
+    end
+)
+
+Aimlock:AddTextbox(
+    "Prediction",
+    7.72,
+    function(State)
+        print(State)
+    end
+)
+
+Aimlock:AddToggle(
+    "Ping Based",
+    true,
+    function(first)
+       Settings.rewrittenmain.AUTOPRED = first
+    end
+)
+
+Aimlock:AddDropdown(
+    "HitPart",
+    {"HumanoidRootPart", "Head", "LowerTorso", "UpperTorso"},
+    "HumanoidRootPart",
+    false,
+    function(Option)
+        getgenv().AimPart = "Option"
+        SelectedPart = "Option"
+    end
+)
+
+Aimlock:AddToggle(
+    "Notifications",
+    true,
+    function(first)
+       Settings.rewrittenmain.NOTIF = first
+    end
+)
+
+Aimlock:AddToggle(
+    "Shake",
+    false,
+    function(first)
+       print(first)
+    end
+)
+
+Aimlock:AddSlider("Shake Power", 0, 1, 10, 1, function(State)
+    print(State)
+end)
+
+Aimlock:AddToggle(
+    "Smoothness",
+    false,
+    function(first)
+       print(first)
+    end
+)
+
+Aimlock:AddTextbox(
+    "Smoothness Power",
+    100,
+... (579 lines left)
